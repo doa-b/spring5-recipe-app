@@ -1,7 +1,9 @@
 package guru.springframework;
 
+import org.hibernate.Session;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Scope;
 
 @SpringBootApplication
 public class Spring5RecipeAppApplication {
