@@ -9,9 +9,9 @@
 <table>
 <thead>
 <tr>
-    <th >Id</th>
-    <th >Recipe Description</th>
-    <th >Recipe CookingTime</th>
+    <th>Id</th>
+    <th align="left">Recipe Description</th>
+    <th align="left">Difficulty</th>
 </tr>
 </thead>
 <tbody>
@@ -19,15 +19,11 @@
 
 </tbody>
     <tr th:each="recipe : ${recipes}">
-        <td th:text="${recipes}">1</td>
-        <td th:text="${recipes}">john</td>
-        <td th:text="${recipes}">Doe</td>
+        <td width="20" th:text="${recipe.id}">1</td>
+        <td width="200" th:text="${recipe.description}">none</td>
+        <td width="10" th:text="${recipe.difficulty}">easy</td>
     </tr>
 
 </table>
-
-
-
-
 </body>
 </html>
