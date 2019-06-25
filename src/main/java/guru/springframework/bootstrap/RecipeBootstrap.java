@@ -81,18 +81,28 @@ public class RecipeBootstrap implements CommandLineRunner {
                 "                \"Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws"));
 
         // save note relationship in both directions
+//        perfectGuacamole.setNotes(guacamoleNotes);
+//        guacamoleNotes.setRecipe(perfectGuacamole);
         perfectGuacamole.setNotes(guacamoleNotes);
-        guacamoleNotes.setRecipe(perfectGuacamole);
 
         // add ingredients
-        perfectGuacamole.getIngredients().add(new Ingredient("ripe avocados", new BigDecimal(2), eachOne, perfectGuacamole));
-        perfectGuacamole.getIngredients().add(new Ingredient("Kosher salt", new BigDecimal(".5"), teaSpoon, perfectGuacamole));
-        perfectGuacamole.getIngredients().add(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(2), tableSpoon, perfectGuacamole));
-        perfectGuacamole.getIngredients().add(new Ingredient("minced red onion or thinly sliced green onion", new BigDecimal(2),tableSpoon, perfectGuacamole));
-        perfectGuacamole.getIngredients().add(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2), eachOne, perfectGuacamole));
-        perfectGuacamole.getIngredients().add(new Ingredient("Cilantro", new BigDecimal(2), tableSpoon, perfectGuacamole));
-        perfectGuacamole.getIngredients().add(new Ingredient("freshly grated black pepper", new BigDecimal(2), dash, perfectGuacamole));
-        perfectGuacamole.getIngredients().add(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(".5"), eachOne, perfectGuacamole));
+//        perfectGuacamole.getIngredients().add(new Ingredient("ripe avocados", new BigDecimal(2), eachOne, perfectGuacamole));
+//        perfectGuacamole.getIngredients().add(new Ingredient("Kosher salt", new BigDecimal(".5"), teaSpoon, perfectGuacamole));
+//        perfectGuacamole.getIngredients().add(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(2), tableSpoon, perfectGuacamole));
+//        perfectGuacamole.getIngredients().add(new Ingredient("minced red onion or thinly sliced green onion", new BigDecimal(2),tableSpoon, perfectGuacamole));
+//        perfectGuacamole.getIngredients().add(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2), eachOne, perfectGuacamole));
+//        perfectGuacamole.getIngredients().add(new Ingredient("Cilantro", new BigDecimal(2), tableSpoon, perfectGuacamole));
+//        perfectGuacamole.getIngredients().add(new Ingredient("freshly grated black pepper", new BigDecimal(2), dash, perfectGuacamole));
+//        perfectGuacamole.getIngredients().add(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(".5"), eachOne, perfectGuacamole));
+
+        perfectGuacamole.addIngredient(new Ingredient("ripe avocados", new BigDecimal(2), eachOne));
+        perfectGuacamole.addIngredient(new Ingredient("Kosher salt", new BigDecimal(".5"), teaSpoon));
+        perfectGuacamole.addIngredient(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(2), tableSpoon));
+        perfectGuacamole.addIngredient(new Ingredient("minced red onion or thinly sliced green onion", new BigDecimal(2),tableSpoon));
+        perfectGuacamole.addIngredient(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2), eachOne));
+        perfectGuacamole.addIngredient(new Ingredient("Cilantro", new BigDecimal(2), tableSpoon));
+        perfectGuacamole.addIngredient(new Ingredient("freshly grated black pepper", new BigDecimal(2), dash));
+        perfectGuacamole.addIngredient(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(".5"), eachOne));
         System.out.println("setting ingredients");
 
         // set categories
