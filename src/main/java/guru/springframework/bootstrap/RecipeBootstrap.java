@@ -4,6 +4,7 @@ import guru.springframework.Repositories.CategoryRepository;
 import guru.springframework.Repositories.RecipeRepository;
 import guru.springframework.Repositories.UnitOfMeasureRepository;
 import guru.springframework.domain.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,7 @@ import java.util.Set;
 /**
  * Created by Doa on 24-6-2019.
  */
+@Slf4j
 @Component
 public class RecipeBootstrap implements CommandLineRunner {
 
@@ -46,11 +48,13 @@ public class RecipeBootstrap implements CommandLineRunner {
         UnitOfMeasure dash = unitOfMeasureRepository.findByDescription("Dash").get();
         UnitOfMeasure pint = unitOfMeasureRepository.findByDescription("Pint").get();
         System.out.println("getting all units of measurements");
+        log.debug("UOM data loaded");
 
         //get Categories
         Category american = categoryRepository.findByDescription("American").get();
         Category mexican = categoryRepository.findByDescription("Mexican").get();
         System.out.println("getting Categories");
+        log.debug("Categories loaded");
 
         // now save the recipes
         // Guacamole recipe
@@ -104,6 +108,7 @@ public class RecipeBootstrap implements CommandLineRunner {
         perfectGuacamole.addIngredient(new Ingredient("freshly grated black pepper", new BigDecimal(2), dash));
         perfectGuacamole.addIngredient(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(".5"), eachOne));
         System.out.println("setting ingredients");
+        log.debug("ingredients loaded");
 
         // set categories
         perfectGuacamole.getCategories().add(american);
@@ -111,6 +116,7 @@ public class RecipeBootstrap implements CommandLineRunner {
 
         // save this recipe
         recipeRepository.save(perfectGuacamole);
+        log.debug("perfect Guacomole recipe saved");
 
         // Taco Recipe
         Recipe tacosRecipe = new Recipe();
@@ -154,7 +160,7 @@ public class RecipeBootstrap implements CommandLineRunner {
         tacosRecipe.getIngredients().add(new Ingredient("fresh-squeezed orange juice", new BigDecimal(3), tableSpoon, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("Olive Oil", new BigDecimal(2), tableSpoon, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("boneless chicken thighs", new BigDecimal(4), tableSpoon, tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("small corn tortillasr", new BigDecimal(8), eachOne, tacosRecipe));
+        tacosRecipe.getIngredients().add(new Ingredient("small corn tortillas", new BigDecimal(8), eachOne, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("packed baby arugula", new BigDecimal(3), cup, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("medium ripe avocados, slic", new BigDecimal(2), cup, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("radishes, thinly sliced", new BigDecimal(4), eachOne, tacosRecipe));
@@ -164,9 +170,13 @@ public class RecipeBootstrap implements CommandLineRunner {
         tacosRecipe.getIngredients().add(new Ingredient("cup sour cream thinned with 1/4 cup milk", new BigDecimal(4), cup, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("lime, cut into wedges", new BigDecimal(4), eachOne, tacosRecipe));
 
+        log.debug("taco ingredients loaded");
+
         tacosRecipe.getCategories().add(american);
         tacosRecipe.getCategories().add(mexican);
 
         recipeRepository.save(tacosRecipe);
+
+        log.debug("toco recipe saved");
     }
 }
